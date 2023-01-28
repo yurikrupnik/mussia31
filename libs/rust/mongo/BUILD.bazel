@@ -1,0 +1,18 @@
+# rust_binary(name, aliases, compile_data, crate_features, crate_name, crate_root, crate_type, data,
+#             deps, edition, experimental_use_cc_common_link, linker_script, out_binary,
+#             proc_macro_deps, rustc_env, rustc_env_files, rustc_flags, srcs, stamp, version)
+
+package(default_visibility = ["//visibility:public"])
+
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library")
+
+rust_library(
+    name = "mongodb",
+    srcs = ["src/lib.rs"],
+)
+
+# rust_binary(
+#     name = "actix-app",
+#     srcs = ["src/main.rs"],
+#     deps = ["//mongodb"],
+# )

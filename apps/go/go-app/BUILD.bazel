@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+
+go_library(
+    name = "go-app_lib",
+    srcs = ["main.go"],
+    importpath = "github/yurikrupnik/mussia31/apps/go/go-app",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "go-app",
+    embed = [":go-app_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "go-app_test",
+    srcs = ["main_test.go"],
+    embed = [":go-app_lib"],
+)
+
+go_image(
+    name = "go_apps",
+    srcs = ["main.go"],
+    #    importpath = "github.com/your/path/here",
+)

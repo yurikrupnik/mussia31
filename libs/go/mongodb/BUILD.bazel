@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_mongodb",
+    srcs = ["go-mongodb.go"],
+    importpath = "",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "lib_test",
+    srcs = ["go-mongodb_test.go"],
+    embed = [":go_mongodb"],
+)
+
+go_library(
+    name = "mongodb",
+    srcs = ["go-mongodb.go"],
+    importpath = "github/yurikrupnik/mussia31/libs/go/mongodb",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "mongodb_test",
+    srcs = ["go-mongodb_test.go"],
+    embed = [":mongodb"],
+)

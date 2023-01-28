@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "libs/rust/example-lib",
+    "apps/go/get-os-version",
+    "apps/rust/rust-k8s-controller",
+    "apps/rust/http-app",
+    "apps/rust/tauri-app",
+    "apps/rust/cli-app",
+    "libs/rust/mongo",
+    "apps/rust-web-api"
+]
+
+[workspace.dependencies]
+controller-rs = "*"

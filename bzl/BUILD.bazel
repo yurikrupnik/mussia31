@@ -1,0 +1,55 @@
+#load("@bazel_gazelle//:def.bzl", "gazelle")
+#
+## # gazelle:prefix github/yurikrupnik/mussia31
+#gazelle(name = "gazelle")
+#gazelle(
+#    name = "gazelle-update-repos",
+#    args = [
+#        "-from_file=go.mod",
+#        "-to_macro=deps.bzl%go_dependencies",
+#        "-prune",
+#    ],
+#    command = "update-repos",
+#)
+
+# load(":foo.bzl", "foo_binary")
+
+# foo_binary(name = "bin")
+py_binary(
+    name = "main.py",
+    srcs = ["foo.bzl"],
+    #    data = [":transform"],  # a cc_binary which we invoke at run time
+    deps = [
+        #    ":foolib",  # a py_library
+    ],
+)
+
+# py_binary(
+#     name = "main.py",
+#     srcs = ["main.py"],
+# #    data = [":transform"],  # a cc_binary which we invoke at run time
+#     deps = [
+#     #    ":foolib",  # a py_library
+#     ],
+# )
+
+# py_test(
+#    name = "foo.test",
+#    srcs = ["foo.test.py"],
+#    deps = [
+# #        ":foolib",  # a py_library
+#    ],
+# )
+
+# load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/yurikrupnik/mussia31
+# gazelle(name = "gazelle")
+# py_binary(
+#    name = "foo-lib",
+#    srcs = ["bzl/foo.py"],
+# #    data = [":transform"],  # a cc_binary which we invoke at run time
+#    deps = [
+# #        ":foolib",  # a py_library
+#    ],
+# )
