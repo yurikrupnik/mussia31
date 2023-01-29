@@ -1,9 +1,10 @@
 load("@bazel_gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "nogo")
 
 # gazelle:prefix github/yurikrupnik/mussia31
 gazelle(
     name = "gazelle",
-    #    gazelle = ":gazelle_js",
+    # gazelle = ":gazelle_js",
     #    languages = DEFAULT_LANGUAGES + [
     #        "@com_github_benchsci_rules_nodejs_gazelle//gazelle",
     #    ],
@@ -18,6 +19,18 @@ gazelle(
     ],
     command = "update-repos",
 )
+
+# gazelle:exclude node_modules
+# gazelle:js_package_file package.json
+
+# gazelle:map_kind js_library js_library @build_bazel_rules_nodejs
+# gazelle:map_kind ts_project ts_project @my_local_repo
+# gazelle_binary(
+#     name = "gazelle_js",
+#     languages = DEFAULT_LANGUAGES + [
+#         "@com_github_benchsci_rules_nodejs_gazelle//gazelle",
+#     ],
+# )
 
 # load(":foo.bzl", "foo_binary")
 
@@ -46,3 +59,16 @@ py_test(
 #     name = "example_target",
 #     # deps = [":another_target"],
 # )
+
+go_library(
+    name = "mussia31_lib",
+    srcs = ["main.go"],
+    importpath = "github/yurikrupnik/mussia31",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "mussia31",
+    embed = [":mussia31_lib"],
+    visibility = ["//visibility:public"],
+)

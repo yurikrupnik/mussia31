@@ -125,9 +125,9 @@ load("@io_bazel_rules_docker//python3:image.bzl", _py_image_repos = "repositorie
 _py_image_repos()
 
 ### Bazoku Setup
-load("@bazoku//tools:deps.bzl", "bazoku_deps")
+#load("@bazoku//tools:deps.bzl", "bazoku_deps")
 
-bazoku_deps()
+#bazoku_deps()
 
 #### Java
 #load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
@@ -154,15 +154,48 @@ bazoku_deps()
 #load("@maven//:defs.bzl", "pinned_maven_install")
 #pinned_maven_install()
 
-#http_archive(
-#    name = "com_github_benchsci_rules_nodejs_gazelle",
-#    sha256 = "####",
-#    strip_prefix = "rules_nodejs_gazelle-####",
-#    urls = [
-#        "https://github.com/benchsci/rules_nodejs_gazelle/archive/####.tar.gz",
-#    ],
+http_archive(
+    name = "com_github_benchsci_rules_nodejs_gazelle",
+    sha256 = "####",
+    strip_prefix = "rules_nodejs_gazelle-####",
+    urls = [
+        "https://github.com/benchsci/rules_nodejs_gazelle/archive/####.tar.gz",
+    ],
+)
+
+http_archive(
+    name = "io_bazel_rules_k8s",
+    strip_prefix = "rules_k8s-0.5",
+    urls = ["https://github.com/bazelbuild/rules_k8s/archive/v0.5.tar.gz"],
+    sha256 = "773aa45f2421a66c8aa651b8cecb8ea51db91799a405bd7b913d77052ac7261a",
+)
+#
+#load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_repositories")
+#
+#k8s_repositories()
+#
+#load("@io_bazel_rules_k8s//k8s:k8s_go_deps.bzl", k8s_go_deps = "deps")
+#
+#k8s_go_deps()
+
+#load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_defaults")
+#
+#k8s_defaults(
+#  # This becomes the name of the @repository and the rule
+#  # you will import in your BUILD files.
+#  name = "k8s_deploy",
+#  kind = "deployment",
+#  # This is the name of the cluster as it appears in:
+#  #   kubectl config view --minify -o=jsonpath='{.contexts[0].context.cluster}'
+#  cluster = "my-gke-cluster",
 #)
 
+#k8s_defaults(
+#  name = "k8s_dev_deploy",
+#  kind = "deployment",
+#  cluster = "shared-cluster",
+#  namespace = "{BUILD_USER}",
+#)
 #http_archive(
 #    name = "aspect_rules_js",
 #    sha256 = "9f51475dd2f99abb015939b1cf57ab5f15ef36ca6d2a67104450893fd0aa5c8b",

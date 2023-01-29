@@ -1,7 +1,23 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary")
-
-rust_binary(
-    name = "http-app",
-    srcs = ["src/main.rs"],
-    # deps = ["//mongodb"],
-)
+#load("@rules_rust//rust:defs.bzl", "rust_binary")
+#load("@io_bazel_rules_docker//rust:image.bzl", "rust_image")
+#
+#rust_binary(
+#    name = "http-app",
+#    srcs = ["src/main.rs"],
+#    # deps = ["//mongodb"],
+#)
+#
+#rust_image(
+#    name = "rust_image",
+#    binary = ":http-app",
+#    #    srcs = ["src/main.rs"],
+#)
+#
+#container_push(
+#    name = "publish",
+#    format = "Docker",
+#    image = ":bazel-go-app",
+#    registry = "registry.hub.docker.com",
+#    repository = "yurikrupnik/rust-api-rest",
+#    tag = "1",
+#)

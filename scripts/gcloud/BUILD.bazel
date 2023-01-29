@@ -1,0 +1,26 @@
+#sh_library(
+#    name = "gcp-get-secret",
+#    srcs = ["get-secret.sh"],
+#    data = [
+#        # ":foo_service_script",  # an sh_binary with srcs
+#        # ":deploy_foo",  # another sh_binary with srcs
+#    ],
+#)
+#
+#sh_binary(
+#    name = "gcp-get-secret",
+#    srcs = ["get-secret.sh"],
+#    # data = glob(["datafiles/*.txt"]),
+#)
+#
+#sh_binary(
+#    name = "gcp-get-user",
+#    srcs = ["get-user.sh"],
+#    # data = glob(["datafiles/*.txt"]),
+#)
+#
+#sh_binary(
+#    name = "cargo-ex",
+#    srcs = ["cargo-ex.sh"],
+#    # data = glob(["datafiles/*.txt"]),
+#)

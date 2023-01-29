@@ -1,17 +1,17 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
-
-rust_library(
-    name = "example_lib",
-    srcs = ["src/lib.rs"],
-)
-
+#load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+#
+#rust_library(
+#    name = "example_lib",
+#    srcs = ["src/lib.rs"],
+#)
+#
+##rust_test(
+##    name = "hello_lib_test",
+##    crate = ":example_lib",
+##    # You may add other deps that are specific to the test configuration
+##    deps = ["//some/dev/dep"],
 #rust_test(
-#    name = "hello_lib_test",
-#    crate = ":example_lib",
-#    # You may add other deps that are specific to the test configuration
-#    deps = ["//some/dev/dep"],
-rust_test(
-    name = "greeting_test",
-    srcs = ["src/lib.rs"],
-    #    deps = [":hello_lib"],
-)
+#    name = "greeting_test",
+#    srcs = ["src/lib.rs"],
+#    #    deps = [":hello_lib"],
+#)

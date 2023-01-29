@@ -1,0 +1,1 @@
+gcloud services list --available

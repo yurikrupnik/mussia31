@@ -1,7 +1,7 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary")
-
-rust_binary(
-    name = "tauri-app",
-    srcs = ["src/main.rs"],
-    # deps = ["//mongodb"],
-)
+#load("@rules_rust//rust:defs.bzl", "rust_binary")
+#
+#rust_binary(
+#    name = "tauri-app",
+#    srcs = ["src/main.rs"],
+#    # deps = ["//mongodb"],
+#)
